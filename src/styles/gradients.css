@@ -20,11 +20,21 @@
     transparent 1px,
     transparent 8px
   );
+
+  --background-image-secondary-vertical-stripes: 
+  repeating-linear-gradient(
+    to right,
+    var(--color-secondary-400) 0px,
+    var(--color-secondary-400) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+
   --background-image-light-vertical-stripes: 
   repeating-linear-gradient(
     to right,
-    var(--color-base-200) 0px,
-    var(--color-base-200) 1px,
+    var(--color-base-300) 0px,
+    var(--color-base-300) 1px,
     transparent 1px,
     transparent 8px
   );
@@ -59,8 +69,8 @@
 --background-image-light-horizontal-stripes: 
   repeating-linear-gradient(
     to bottom,
-    var(--color-base-200) 0px,
-    var(--color-base-200) 1px,
+    var(--color-base-300) 0px,
+    var(--color-base-300) 1px,
     transparent 1px,
     transparent 8px
   );
@@ -84,11 +94,20 @@
     transparent 8px
   );
 
+  --background-image-secondary-vertical-stripes-dark: 
+  repeating-linear-gradient(
+    to right,
+    var(--color-secondary-600) 0px,
+    var(--color-secondary-600) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+
   --background-image-light-vertical-stripes-dark: 
   repeating-linear-gradient(
     to right,
-    var(--color-base-200) 0px,
-    var(--color-base-200) 1px,
+    var(--color-base-300) 0px,
+    var(--color-base-300) 1px,
     transparent 1px,
     transparent 8px
   );
@@ -122,13 +141,13 @@
   );
 
   --background-image-light-horizontal-stripes-dark: 
-  repeating-linear-gradient(
-    to bottom,
-    var(--color-base-200) 0px,
-    var(--color-base-200) 1px,
-    transparent 1px,
-    transparent 8px
-  );
+    repeating-linear-gradient(
+      to bottom,
+      var(--color-base-300) 0px,
+      var(--color-base-300) 1px,
+      transparent 1px,
+      transparent 8px
+    );
 }
 
 /* Clip path */
