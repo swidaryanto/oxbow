@@ -54,7 +54,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/screenshots/*.png"
 );
 const formattedSubsection = subsection.replace("-", " ");
-const user = Astro.locals.user;
+
 const SEVEN_DAYS_AGO = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 // Normalize subsection for lookup (keeps things case/char safe)
 const subsectionKey = (subsection || "").toLowerCase();

@@ -1,6 +1,4 @@
 ---
-const user = Astro.locals.user;
-
 import Command from "@/components/fundations/icons/Command.astro";
 import Search from "@/components/fundations/icons/Search.astro";
 import ThemeToggle from "@/components/assets/ThemeToggle.astro";
@@ -14,9 +12,8 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 
 <div
   class="fixed top-0 left-0 right-0 z-50 items-center w-full mx-auto duration-300 bg-white dark:bg-base-950"
-  x-data={`{...navigation(), username: "${user?.email ?? ""}"}`}
+  x-data="navigation()"
 >
-  <!-- {!user && <OfferBanner60base />} -->
   <Wrapper variant="nav" class="w-full">
     <div
       class="flex flex-col w-full lg:bg-none md:flex-row md:items-center md:justify-between"
