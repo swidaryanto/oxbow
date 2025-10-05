@@ -193,13 +193,13 @@ export default function CommandBar() {
       >
         <div className="relative divide-y divide-base-200 dark:divide-base-800 p-4">
           {stack.length > 0 && !query && (
-            <div className="px-4 py-2">
-              <button className="mb-2 text-xs text-base-400 hover:text-base-700 dark:hover:text-base-200" onClick={() => setStack(s => s.slice(0, -1))}>Back</button>
+            <div className=" py-2">
+              <button className=" text-xs font-medium text-base-600 hover:text-base-400 dark:hover:text-base-200" onClick={() => setStack(s => s.slice(0, -1))}>Go Back</button>
             </div>
           )}
           <input
             ref={inputRef}
-            className="w-full px-3 py-2 bg-beige dark:bg-base-900 text-base-900 dark:text-base-100 outline-none  border border-none dark:border-none focus:ring-2 focus:ring-secondary-400 placeholder:text-base-400 dark:placeholder:text-base-500"
+            className="w-full px-3 py-2 mt-2 bg-beige dark:bg-base-900 text-base-900 dark:text-base-100 outline-none  border border-none dark:border-none focus:ring-2 focus:ring-secondary-400 placeholder:text-base-400 dark:placeholder:text-base-500"
             placeholder={stack.length > 0 ? `Search ${stack[stack.length-1].title}...` : "Type a command..."}
             value={query}
             onChange={e => { setQuery(e.target.value); setSelected(0); }}
@@ -226,7 +226,7 @@ export default function CommandBar() {
                 key={cmd.id || cmd.title}
                 ref={el => itemRefs.current[i] = el}
                 tabIndex={0}
-                className={`p-3 cursor-pointer text-sm font-medium  flex items-center justify-between outline-none transition-colors ${i === selected ? "bg-secondary-500/10 dark:bg-secondary-500/20 text-base-900 dark:text-base-50" : "text-base-500 dark:text-base-400"}`}
+                className={`p-3 cursor-pointer text-sm font-medium  flex items-center justify-between outline-none transition-colors ${i === selected ? "border-base-900 dark:border-white border-y text-base-900 dark:text-base-50" : "text-base-500 dark:text-base-400"}`}
                 onMouseEnter={() => setSelected(i)}
                 onClick={() => {
                   if (cmd.children) {
@@ -293,21 +293,20 @@ export default function CommandBar() {
               </li>
             ))}
           </ul>
-          <div className="p-4 pb-2 text-xs text-base-500 dark:text-base-400 flex flex-col items-center gap-1 select-none">
-            <div className="flex gap-2 items-center flex-wrap justify-center">
-              <kbd className="flex items-center justify-center px-1 text-[0.65rem] font-mono font-medium uppercase text-base-700 dark:text-base-100">↑↓</kbd>
+          
+            <div className="flex gap-2 pt-2 items-center flex-wrap justify-center font-medium select-none px-4 text-xs text-base-400 dark:text-base-400">
+              <kbd className="px-1 text-[0.65rem] border rounded bg-base-100 dark:bg-base-800 border-base-200 dark:border-base-700 dark:text-base-400 text-base-600">↑↓</kbd>
               Move
-              <kbd className="flex items-center justify-center px-1 text-[0.65rem] font-mono font-medium uppercase text-base-700 dark:text-base-100">Enter</kbd>
+              <kbd className="px-1 text-[0.65rem] border rounded bg-base-100 dark:bg-base-800 border-base-200 dark:border-base-700 dark:text-base-400 text-base-600">Enter</kbd>
               Select
-              <kbd className="flex items-center justify-center px-1 text-[0.65rem] font-mono font-medium uppercase text-base-700 dark:text-base-100">Esc</kbd>
+              <kbd className="px-1 text-[0.65rem] border rounded bg-base-100 dark:bg-base-800 border-base-200 dark:border-base-700 dark:text-base-400 text-base-600">Esc</kbd>
               Close
-              <kbd className="flex items-center justify-center px-1 text-[0.65rem] font-mono font-medium uppercase text-base-700 dark:text-base-100">Backspace</kbd>
+              <kbd className="px-1 text-[0.65rem] border rounded bg-base-100 dark:bg-base-800 border-base-200 dark:border-base-700 dark:text-base-400 text-base-600">Backspace</kbd>
               Go Back
-              <kbd className="flex items-center justify-center px-1 text-[0.65rem] font-mono font-medium uppercase text-base-700 dark:text-base-100">Cmd</kbd>
-              <kbd className="flex items-center justify-center px-1 text-[0.65rem] font-mono font-medium uppercase text-base-700 dark:text-base-100">K</kbd>
+              <kbd className="px-1 text-[0.65rem] border rounded bg-base-100 dark:bg-base-800 border-base-200 dark:border-base-700 dark:text-base-400 text-base-600">Cmd</kbd>
+              <kbd className="px-1 text-[0.65rem] border rounded bg-base-100 dark:bg-base-800 border-base-200 dark:border-base-700 dark:text-base-400 text-base-600">K</kbd>
               Open
             </div>
-          </div>
         </div>
       </div>
     </div>
