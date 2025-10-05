@@ -2,7 +2,9 @@
 import BaseHead from "@/components/BaseHead.astro";
 import Navigation from "@/components/global/Navigation.astro";
 import Footer from "@/components/global/Footer.astro";
+
 import NinjaScript from "@/components/commandBar/NinjaScript.astro";
+import CommandBar from "../components/CommandBar";
 import CopyButton from "@/components/documentation/CopyButton.astro";
 
 const siteUrl = (Astro.site && Astro.site.toString()) || "https://oxbowui.com";
@@ -65,15 +67,7 @@ const isDocsPage = Astro.url.pathname.startsWith("/documentation");
       <slot />
     </main>
     {!hideFooter && <Footer />}
-    <ninja-keys
-      id="ninja"
-      class="dark"
-      selectHotkey="enter"
-      placeholder="Search for anything..."
-    >
-      <slot name="footer" />
-    </ninja-keys>
-    <NinjaScript />
+    <CommandBar client:only="react" />
     <CopyButton targetSelector="pre" />
   </body>
 </html>
