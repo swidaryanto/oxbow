@@ -1,6 +1,5 @@
 ---
 import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/typography/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
@@ -51,7 +50,8 @@ const allSmall = sectionComponents.every(({ filePath }) => {
   );
 });
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/screenshots/*.png"
+  "/src/screenshots/*.png",
+  { eager: true }
 );
 const formattedSubsection = subsection.replace("-", " ");
 
@@ -150,7 +150,8 @@ const subsectionKey = (subsection || "").toLowerCase();
               index
             ) => {
               const pathNoAstro = filePath.replace(".astro", "");
-              if (!images[imagePath]) return null;
+              const screenshot = images[imagePath]?.default;
+              if (!screenshot) return null;
               const updatedAt = new Date(updates[filePath] * 1000);
               const isUpdatedLastWeek = updatedAt > SEVEN_DAYS_AGO;
               return (
@@ -176,12 +177,13 @@ const subsectionKey = (subsection || "").toLowerCase();
                     )}
                   </div>
                   <div class="overflow-hidden bg-white outline outline-base-200 dark:outline-base-800 ">
-                    <Image
-                      width={1000}
-                      height={1000}
-                      src={images[imagePath]?.() ?? "/placeholder.png"}
+                    <img
+                      width={screenshot.width ?? 1000}
+                      height={screenshot.height ?? 1000}
+                      src={screenshot.src}
                       alt={`${subsection} preview ${index + 1}`}
-                      class="object-cover object-top "
+                      class="object-cover object-top"
+                      loading="lazy"
                     />
                   </div>
                 </a>
